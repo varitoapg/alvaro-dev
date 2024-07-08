@@ -1,0 +1,60 @@
+---
+import type { Experience } from "../types";
+import CardContainer from "./common/CardContainer.astro";
+import TechPill from "./TechPill.astro";
+
+interface Props {
+  experience: Experience;
+}
+
+const { experience }: Props = Astro.props;
+---
+
+<CardContainer>
+  <div class="flex flex-col">
+    <h2 class="mb-2 text-xl font-bold">{experience.position}</h2>
+    <div class="mb-5 flex items-center">
+      <h3 class="text-lg">{experience.company}</h3>
+      <div class="mx-3 h-6 border border-main-text"></div>
+      <span class="text-lg">
+        {`${experience.startDate} - ${experience.endDate}`}
+      </span>
+    </div>
+    <ul class="flex list-none flex-wrap gap-2 p-0">
+      {
+        experience.stack.map(({ name, image }) => (
+          <TechPill name={name} image={image} iconSize={16} isPill />
+        ))
+      }
+    </ul>
+    <button
+      class="more-info-button mt-6 cursor-pointer rounded border-none bg-primary px-4 py-2 text-white hover:bg-secondary"
+    >
+      Más información
+    </button>
+  </div>
+  <ul class="mt-5 hidden">
+    {
+      experience.description.map((point) => (
+        <li class="max-w-70ch mb-2 text-pretty">{point}</li>
+      ))
+    }
+  </ul>
+</CardContainer>
+
+<script>
+  import { toggleList } from "../scripts/toggleList";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".more-info-button");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const list = button.closest("div")?.nextElementSibling;
+        if (list) {
+          toggleList(list);
+        }
+      });
+    });
+  });
+</script>

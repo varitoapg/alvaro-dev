@@ -1,0 +1,13 @@
+---
+import type { Section } from "../types.ts";
+type Props = Section;
+const { title, id } = Astro.props;
+---
+
+<li class="md:ml-0">
+  <a
+    href=`#${id}`
+    class="font-secondary-font rounded px-3 py-2 text-lg font-bold text-white hover:text-secondary md:bg-transparent md:p-0 md:text-primary"
+    >{title}</a
+  >
+</li>

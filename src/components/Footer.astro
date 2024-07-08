@@ -1,0 +1,59 @@
+---
+import Container from "./common/Container.astro";
+import GitHubLink from "./links/GitHubLink.astro";
+import LinkedInLink from "./links/LinkedInLink.astro";
+import CopyIcon from "./icons/CopyIcon.astro";
+import TelephoneIcon from "./icons/TelephoneIcon.astro";
+---
+
+<footer class="pb-5 pt-10 text-center">
+  <Container>
+    <!-- <h2
+      class="mb-5 text-center text-2xl font-bold md:text-left "
+    >
+      Contacto
+    </h2> -->
+    <div class="flex flex-col items-center justify-center gap-5 md:flex-row">
+      <div class="flex flex-row">
+        <button
+          id="copyButton"
+          aria-label="Copiar correo"
+          class="rounded-bl rounded-tl border border-primary bg-primary p-2 text-white transition-colors duration-300 hover:bg-secondary hover:text-white"
+          ><CopyIcon id="copyIcon" class="text-white" />
+          <span id="copied" class="hidden text-inherit">¡Copiado!</span></button
+        >
+        <span
+          id="textToCopy"
+          class="w-full truncate rounded-br rounded-tr border border-l-0 border-primary bg-transparent p-2 text-primary sm:w-[240px]"
+          >alvaro.parada92@gmail.com</span
+        >
+      </div>
+      <div class="flex flex-row items-center text-lg">
+        <TelephoneIcon class="size-8 text-primary" />
+        <span class="text-primary">+34 615 928 718</span>
+      </div>
+      <div class="flex flex-row gap-3">
+        <GitHubLink
+          height="36"
+          width="36"
+          linkClass="hover:text-hover hover:scale-150"
+        />
+        <LinkedInLink
+          height="36"
+          width="36"
+          linkClass="hover:text-hover hover:scale-150"
+        />
+      </div>
+    </div>
+  </Container>
+</footer>
+
+<script>
+  import { copyText } from "../scripts/copyText.js";
+  import { changeCopyIcon } from "../scripts/changeCopyIcon.js";
+
+  document.getElementById("copyButton")?.addEventListener("click", () => {
+    copyText("textToCopy");
+    changeCopyIcon();
+  });
+</script>

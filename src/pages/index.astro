@@ -1,0 +1,56 @@
+---
+import "@fontsource/inter";
+import "@fontsource/poppins";
+
+import AboutMe from "../components/AboutMe.astro";
+import Container from "../components/common/Container.astro";
+import Section from "../components/common/Section.astro";
+import EducationCard from "../components/EducationCard.astro";
+import ExperienceCard from "../components/ExperienceCard.astro";
+import NavBar from "../components/NavBar.astro";
+import PersonalCard from "../components/PersonalCard.astro";
+import CarouselItem from "../components/ProjectCarousel.astro";
+import StackCard from "../components/StackCard.astro";
+import { educations } from "../data/education";
+import { experiences } from "../data/experience";
+import {
+  backEndProjects,
+  frontEndProjects,
+  otherProjects
+} from "../data/projects";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Álvaro Parada García">
+  <Container>
+    <NavBar />
+    <div class="flex flex-col gap-16">
+      <header class="flex flex-col gap-4">
+        <PersonalCard name={"Álvaro Parada García"} />
+      </header>
+      <Section title="Experiencia" id="experience">
+        {
+          experiences.map((experience) => (
+            <ExperienceCard experience={experience} />
+          ))
+        }
+      </Section>
+
+      <Section title={"Sobre mí"} id="about-me">
+        <AboutMe />
+      </Section>
+
+      <Section title={"Proyectos"} id="projects" customClass="mb-16 md:mb-0">
+        <CarouselItem
+          projects={[...frontEndProjects, ...backEndProjects, ...otherProjects]}
+        />
+      </Section>
+      <Section title={"Educación"} id="education">
+        {educations.map((education) => <EducationCard education={education} />)}
+      </Section>
+      <Section title={"Stack"} id="stack">
+        <StackCard />
+      </Section>
+    </div>
+  </Container>
+</Layout>

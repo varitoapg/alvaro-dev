@@ -1,0 +1,16 @@
+---
+import type { StatusTypes } from "../types";
+import DoneIcon from "./icons/DoneIcon.astro";
+import NotStartedIcon from "./icons/NotStartedIcon.astro";
+import WIPIcon from "./icons/WIPIcon.astro";
+interface Props {
+  status: StatusTypes;
+}
+const { status }: Props = Astro.props;
+---
+
+<div>
+  {status === "Done" && <DoneIcon class="text-green-600" />}
+  {status === "WIP" && <WIPIcon />}
+  {status === "Not Started" && <NotStartedIcon />}
+</div>

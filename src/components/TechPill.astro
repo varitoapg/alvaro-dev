@@ -1,0 +1,24 @@
+---
+interface Props {
+  name: string;
+  image: string;
+  iconSize?: number;
+  textSize?: string;
+  isPill?: boolean;
+}
+
+const { image, name, iconSize = 80, isPill, textSize }: Props = Astro.props;
+---
+
+<li
+  class=`flex items-center gap-2 px-2 py-1 ${isPill ? "rounded-full border border-main-text" : "flex-col"}`
+>
+  <img
+    src={image}
+    class={`inline-block`}
+    width={iconSize}
+    height={iconSize}
+    alt=""
+  />
+  <span class=`text-${textSize ? textSize: "base"}`>{name}</span>
+</li>

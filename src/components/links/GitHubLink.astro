@@ -1,0 +1,28 @@
+---
+import GitHubIcon from "../icons/GitHubIcon.astro";
+
+interface Props {
+  width: string;
+  height: string;
+  linkClass?: string;
+  iconClass?: string;
+  href?: string;
+}
+
+const {
+  width,
+  height,
+  linkClass,
+  iconClass,
+  href = "https://github.com/varitoapg"
+}: Props = Astro.props;
+---
+
+<a
+  class={`cursor-pointer ${linkClass || ""}`}
+  href={href}
+  target="_blank"
+  aria-label="Github profile"
+>
+  <GitHubIcon width={width} height={height} iconClass={iconClass} />
+</a>

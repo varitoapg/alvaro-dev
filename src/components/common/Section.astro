@@ -1,0 +1,22 @@
+---
+import type { NavIds } from "../../types";
+interface Props {
+  title: string;
+  id: NavIds;
+  customClass?: string;
+}
+
+const { title, id, customClass }: Props = Astro.props;
+---
+
+<section
+  id={id}
+  class={`${title.toLocaleLowerCase()} flex flex-col gap-6 ${customClass ?? ""}`}
+>
+  <h2
+    class="border-b-2 border-primary pb-2 font-secondary-font text-3xl font-bold text-main-text"
+  >
+    {title}
+  </h2>
+  <slot />
+</section>

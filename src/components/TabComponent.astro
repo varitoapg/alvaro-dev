@@ -1,0 +1,26 @@
+---
+import type { ProjectTab } from "../types";
+import CardContainer from "./common/CardContainer.astro";
+interface Props {
+  tabButtons: ProjectTab[];
+}
+
+const { tabButtons }: Props = Astro.props;
+---
+
+<CardContainer>
+  <div>
+    <div class="tabs flex space-x-2">
+      {
+        tabButtons.map(({ title }, index) => (
+          <button
+            class={`mb-6 rounded-lg px-4 py-2 text-lg font-semibold text-white transition ${index === 0 ? "bg-blue-500" : "bg-primary"} hover:bg-secondary`}
+          >
+            {title}
+          </button>
+        ))
+      }
+    </div>
+    <slot />
+  </div>
+</CardContainer>

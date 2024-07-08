@@ -1,0 +1,74 @@
+---
+import type { Project } from "../types";
+import GitHubLink from "./links/GitHubLink.astro";
+import NavigateToLink from "./links/NavigateToLink.astro";
+import StatusIndicator from "./StatusIndicator.astro";
+import TechPill from "./TechPill.astro";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<div>
+  <div class="flex flex-col gap-6">
+    <div class="">
+      <div class="mb-2 mt-4 flex flex-row justify-between text-xl font-bold">
+        <span>{project.title} </span>
+        <div class="flex flex-row gap-5">
+          <GitHubLink
+            width="24"
+            height="24"
+            href={project.githubUrl}
+            linkClass="hover:text-hover hover:scale-150"
+          />
+          {
+            project.url && (
+              <NavigateToLink
+                width="24"
+                height="24"
+                href={project.url}
+                linkClass="hover:text-hover hover:scale-150"
+              />
+            )
+          }
+        </div>
+      </div>
+      <p class="text-base text-gray-700">{project.description}</p>
+    </div>
+    <div class="">
+      <ul class="flex list-none flex-wrap gap-2 p-0">
+        {
+          project.stack.map(({ name, image }) => (
+            <TechPill name={name} image={image} iconSize={16} isPill />
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="flex flex-col gap-3">
+      <div class="flex flex-col gap-3 md:flex-row md:gap-10">
+        <div class="flex">
+          <p class="mr-5 text-lg font-bold">Testing:</p>
+          <StatusIndicator status={project.isTested} />
+        </div>
+        <div class="flex">
+          <p class="mr-5 text-lg font-bold">MVP acabado:</p>
+          <StatusIndicator status={project.hasMvpDone} />
+        </div>
+      </div>
+      {
+        project.nextSteps && (
+          <div>
+            <div class="flex items-baseline">
+              <p class="mr-5 text-lg font-bold">Siguiente paso:</p>
+              <span>{project.nextSteps} </span>
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </div>
+</div>

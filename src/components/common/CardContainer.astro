@@ -1,0 +1,14 @@
+---
+interface Props {
+  customClass?: string;
+  id?: string;
+}
+const { customClass, id }: Props = Astro.props;
+---
+
+<div
+  id={id}
+  class=`border-3 rounded-lg border border-border-color bg-gradient-to-br from-gray-300 to-white p-6 shadow-dark-lg ${customClass ?? ""}`
+>
+  <slot />
+</div>

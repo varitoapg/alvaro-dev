@@ -1,0 +1,106 @@
+---
+import type { Project } from "../types";
+import CardContainer from "./common/CardContainer.astro";
+import ArrowIcon from "./icons/ArrowIcon.astro";
+import ProjectCard from "./ProjectCard.astro";
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<CardContainer customClass="px-4 pt-2 pb-4" id="carousel">
+  <div
+    class="relative flex w-full flex-row items-center justify-center md:static"
+  >
+    <button
+      aria-label="Previous project"
+      class="absolute -bottom-20 left-0 z-10 rounded-full bg-primary px-4 py-2 text-white shadow-dark-lg hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-75 disabled:hover:bg-primary md:static md:block"
+      id="prevButton"
+      tabindex="0"
+    >
+      <ArrowIcon customClass="mx-auto rotate-180" width="36px" height="36px" />
+    </button>
+    <ul
+      class="scrollbar-hide mt-4 flex w-full snap-x snap-mandatory gap-3 overflow-x-scroll rounded-2xl"
+      aria-labelledby="carousel-content-label"
+      id="slider"
+    >
+      {
+        projects.map((project) => (
+          <li class="flex h-full w-full shrink-0 snap-start px-5">
+            <ProjectCard project={project} />
+          </li>
+        ))
+      }
+    </ul>
+
+    <button
+      aria-label="Next project"
+      class="absolute -bottom-20 right-0 z-10 rounded-full bg-primary px-4 py-2 text-white shadow-dark-lg hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-75 disabled:hover:bg-primary md:static md:block"
+      id="nextButton"
+      tabindex="0"
+    >
+      <ArrowIcon customClass="mx-auto" width="36px" height="36px" />
+    </button>
+  </div>
+</CardContainer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.getElementById("slider");
+
+    const prevButton = document.getElementById("prevButton");
+    const nextButton = document.getElementById("nextButton");
+    let skip = 1;
+
+    const updateButtonState = () => {
+      const atBeginning = slider!.scrollLeft === 0;
+      const atEnd =
+        slider!.scrollLeft + slider!.clientWidth >= slider!.scrollWidth - 1;
+
+      if (atBeginning) {
+        nextButton!.removeAttribute("disabled");
+        prevButton!.setAttribute("disabled", "true");
+      } else if (atEnd) {
+        prevButton!.removeAttribute("disabled");
+        nextButton!.setAttribute("disabled", "true");
+      } else {
+        prevButton!.removeAttribute("disabled");
+        nextButton!.removeAttribute("disabled");
+      }
+
+      prevButton!.classList.toggle("opacity-50", atBeginning);
+      prevButton!.setAttribute("aria-disabled", atBeginning.toString());
+      prevButton!.setAttribute("tabindex", atBeginning ? "-1" : "0");
+      nextButton!.classList.toggle("opacity-50", atEnd);
+      nextButton!.setAttribute("aria-disabled", atEnd.toString());
+      nextButton!.setAttribute("tabindex", atEnd ? "-1" : "0");
+    };
+
+    const scrollTo = (strategy: {
+      (current: number, offset: number): number;
+      (current: number, offset: number): number;
+      (arg0: number, arg1: number): number;
+    }) => {
+      let current = slider!.scrollLeft;
+      let offset = slider!.firstElementChild!.getBoundingClientRect().width;
+      slider!.scrollTo({
+        left: strategy(current, offset),
+        behavior: "smooth"
+      });
+    };
+
+    const next = () =>
+      scrollTo((current: number, offset: number) => current + offset * skip);
+    const prev = () =>
+      scrollTo((current: number, offset: number) => current - offset * skip);
+
+    prevButton!.addEventListener("click", prev);
+    nextButton!.addEventListener("click", next);
+    slider!.addEventListener("scroll", updateButtonState);
+
+    updateButtonState();
+  });
+</script>

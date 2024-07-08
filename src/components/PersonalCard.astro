@@ -1,0 +1,60 @@
+---
+import GitHubLink from "./links/GitHubLink.astro";
+import LinkedInLink from "./links/LinkedInLink.astro";
+import Role from "./Role.astro";
+
+interface Props {
+  name: string;
+}
+
+const { name }: Props = Astro.props;
+---
+
+<div
+  class="flex h-full w-full flex-col items-center justify-center gap-4 rounded-md bg-primary p-4 shadow-dark-lg md:flex-row"
+>
+  <img
+    src="/assets/images/yo.webp"
+    alt=`${name}`
+    class="h-52 w-52 rounded-full"
+  />
+  <div
+    class="flex h-full w-full flex-col items-center justify-center gap-4 rounded-xl"
+  >
+    <h1
+      class="text-center font-secondary-font text-[35px] text-white md:text-5xl md:text-6xl"
+    >
+      {name}
+    </h1>
+
+    <Role />
+
+    <nav class="flex h-11 flex-grow gap-4">
+      <GitHubLink
+        height="42"
+        width="42"
+        iconClass="text-secondary hover:text-hover"
+      />
+      <LinkedInLink
+        height="42"
+        width="42"
+        iconClass="text-secondary hover:text-hover hover:scale-105"
+      />
+      <button
+        id="downloadButton"
+        class="flex cursor-pointer flex-col rounded-md bg-secondary p-2 text-center text-xl text-white transition-transform hover:scale-105 hover:bg-hover"
+      >
+        Descargar CV
+      </button>
+    </nav>
+  </div>
+</div>
+
+<script>
+  document.getElementById("downloadButton")?.addEventListener("click", () => {
+    const link = document.createElement("a");
+    link.href = "/assets/CV_Alvaro_Parada_ENG.pdf";
+    link.download = "CV-Alvaro-Parada-ENG";
+    link.click();
+  });
+</script>

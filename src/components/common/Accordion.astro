@@ -1,0 +1,51 @@
+---
+import ChevronDownIcon from "../icons/ChevronDownIcon.astro";
+import ChevronUpIcon from "../icons/ChevronUpIcon.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title }: Props = Astro.props;
+---
+
+<div class="accordion-item mb-2">
+  <button
+    class="accordion-tech accordion-header mb-2 mt-5 flex w-full items-center justify-between rounded-t border-b-2 border-primary text-left text-2xl font-bold hover:bg-gray-300 focus:outline-none"
+    data-open="false"
+  >
+    <span>{title}</span>
+    <ChevronDownIcon class="arrow-down" />
+    <ChevronUpIcon class="arrow-up hidden" />
+  </button>
+  <div class="accordion-content hidden px-4 py-2 pl-0">
+    <slot />
+  </div>
+</div>
+
+<script>
+  import { toggleList } from "../../scripts/toggleList";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".accordion-tech");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const isOpen = button.getAttribute("data-open") === "true";
+        const list = button.nextElementSibling;
+        if (list) {
+          toggleList(list);
+          button.setAttribute("data-open", String(!isOpen));
+
+          const arrowDown = button.querySelector(".arrow-down");
+          const arrowUp = button.querySelector(".arrow-up");
+
+          if (arrowDown && arrowUp) {
+            arrowDown.classList.toggle("hidden");
+            arrowUp.classList.toggle("hidden");
+          }
+        }
+      });
+    });
+  });
+</script>

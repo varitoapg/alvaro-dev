@@ -1,0 +1,29 @@
+---
+import { roles } from "../data/roles";
+---
+
+<div
+  class="flex min-h-[72px] w-full max-w-[400px] items-center justify-center rounded-full bg-secondary p-2 md:w-96"
+>
+  <span
+    id="roleDisplay"
+    class="text-center text-xl uppercase text-white md:text-2xl"
+  >
+    {roles[0]}
+  </span>
+</div>
+
+<script>
+  import { roles } from "../data/roles";
+  let currentIndex = 0;
+
+  function updateRole() {
+    currentIndex = (currentIndex + 1) % 3;
+    const roleDisplay = document.getElementById("roleDisplay");
+    if (roleDisplay !== null) {
+      roleDisplay.textContent = roles[currentIndex];
+    }
+  }
+
+  setInterval(updateRole, 2000);
+</script>

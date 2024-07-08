@@ -1,0 +1,48 @@
+---
+import { backend, frontend, languages, tools } from "../data/stack";
+import Accordion from "./common/Accordion.astro";
+import CardContainer from "./common/CardContainer.astro";
+import TechPill from "./TechPill.astro";
+---
+
+<CardContainer>
+  <Accordion title="Lenguajes"
+    ><ul class="flex list-none flex-wrap gap-4 p-0">
+      {
+        languages.map(({ name, image }) => (
+          <TechPill name={name} image={image} textSize="xl" />
+        ))
+      }
+    </ul></Accordion
+  >
+
+  <Accordion title="Front end"
+    ><ul class="flex list-none flex-wrap justify-between gap-5 p-0">
+      {
+        frontend.map(({ name, image }) => (
+          <TechPill name={name} image={image} textSize="xl" />
+        ))
+      }
+    </ul></Accordion
+  >
+
+  <Accordion title="Back end"
+    ><ul class="flex list-none flex-wrap justify-between gap-4 p-0">
+      {
+        backend.map(({ name, image }) => (
+          <TechPill name={name} image={image} textSize="xl" />
+        ))
+      }
+    </ul></Accordion
+  >
+
+  <Accordion title="Otras herramientas"
+    ><ul class="flex list-none flex-wrap justify-between gap-4 p-0">
+      {
+        tools.map(({ name, image }) => (
+          <TechPill name={name} image={image} textSize="xl" />
+        ))
+      }
+    </ul></Accordion
+  >
+</CardContainer>

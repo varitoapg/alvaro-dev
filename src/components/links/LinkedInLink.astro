@@ -1,0 +1,21 @@
+---
+import LinkedInIcon from "../icons/LinkedInIcon.astro";
+
+interface Props {
+  width: string;
+  height: string;
+  linkClass?: string;
+  iconClass?: string;
+}
+
+const { width, height, linkClass, iconClass }: Props = Astro.props;
+---
+
+<a
+  class={`cursor-pointer ${linkClass || ""}`}
+  href="https://www.linkedin.com/in/alvaro-parada/"
+  target="_blank"
+  aria-label="Linkedin Profile"
+>
+  <LinkedInIcon width={width} height={height} iconClass={iconClass} />
+</a>
