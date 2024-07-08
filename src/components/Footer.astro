@@ -8,11 +8,6 @@ import TelephoneIcon from "./icons/TelephoneIcon.astro";
 
 <footer class="pb-5 pt-10 text-center">
   <Container>
-    <!-- <h2
-      class="mb-5 text-center text-2xl font-bold md:text-left "
-    >
-      Contacto
-    </h2> -->
     <div class="flex flex-col items-center justify-center gap-5 md:flex-row">
       <div class="flex flex-row">
         <button
@@ -49,8 +44,8 @@ import TelephoneIcon from "./icons/TelephoneIcon.astro";
 </footer>
 
 <script>
-  import { copyText } from "../scripts/copyText.js";
   import { changeCopyIcon } from "../scripts/changeCopyIcon.js";
+  import { copyText } from "../scripts/copyText.js";
 
   document.getElementById("copyButton")?.addEventListener("click", () => {
     copyText("textToCopy");

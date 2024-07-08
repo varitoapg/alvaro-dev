@@ -1,7 +1,6 @@
 export const toggleBetweenTabs = (
   tabs: NodeListOf<Element>,
   projectContainers: NodeListOf<Element>
-  // skip: number
 ) => {
   tabs.forEach((tab) => {
     tab.addEventListener("click", function () {
@@ -19,7 +18,6 @@ export const toggleBetweenTabs = (
           container.classList.remove("hidden");
           container.classList.add("block");
         } else {
-          // skip = skip;
           container.classList.add("hidden");
         }
       });
