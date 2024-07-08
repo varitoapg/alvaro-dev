@@ -32,9 +32,9 @@ export const frontEndProjects: Project[] = [
       { name: "TailwindCSS", image: getIconImage("tailwindcss") },
       { name: "Astro", image: getIconImage("astro") }
     ],
-    url: "https://the-yawning-portal.netlify.app/",
-    githubUrl: "https://github.com/varitoapg/TheYawningPortal-Front",
-    isTested: "Done",
+    url: "https://alvaro-dev.netlify.app/",
+    githubUrl: "https://github.com/varitoapg/alvaro-dev",
+    isTested: "Not Started",
     hasMvpDone: "Done",
     nextSteps: "Añadir localización a inglés."
   }
