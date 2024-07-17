@@ -5,6 +5,8 @@ export const dictionary: string[] = [
   "Redux",
   "Express",
   "MongoDB",
+  "Mongo",
+  "Node",
   "MERN",
   "SPA",
   "Agile",
@@ -21,5 +23,10 @@ export const dictionary: string[] = [
   "Test unitarios",
   "Test de integración",
   "SQL",
-  "MySQL"
+  "MySQL",
+  "código limpio",
+  "Testing",
+  "capacidad de aprendizaje",
+  "pensamiento analítico",
+  "flexibilidad"
 ];
