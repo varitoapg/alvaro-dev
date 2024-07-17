@@ -1,0 +1,14 @@
+---
+import { preventXSS } from "../../utils/preventXSS";
+import { strongify } from "../../utils/strongify";
+
+interface Props {
+  text: string;
+}
+const { text }: Props = Astro.props;
+const sanitizedText = strongify(preventXSS(text));
+---
+
+<Fragment>
+  <span set:html={sanitizedText} />
+</Fragment>
