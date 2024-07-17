@@ -1,5 +1,6 @@
 ---
 import type { Experience } from "../types";
+import StringFormater from "./common/StringFormater.astro";
 import CardContainer from "./common/CardContainer.astro";
 import TechPill from "./TechPill.astro";
 
@@ -28,7 +29,7 @@ const { experience }: Props = Astro.props;
       }
     </ul>
     <button
-      class="more-info-button mt-6 cursor-pointer rounded border-none bg-primary px-4 py-2 text-white hover:bg-secondary"
+      class="more-info-button mt-6 cursor-pointer rounded border-none bg-primary px-4 py-2 text-lg text-white hover:bg-secondary"
     >
       Más información
     </button>
@@ -36,7 +37,9 @@ const { experience }: Props = Astro.props;
   <ul class="mt-5 hidden">
     {
       experience.description.map((point) => (
-        <li class="max-w-70ch mb-2 text-pretty">{point}</li>
+        <li class="mb-2 max-w-70ch text-pretty text-lg">
+          <StringFormater text={point} />
+        </li>
       ))
     }
   </ul>
