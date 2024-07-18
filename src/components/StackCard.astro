@@ -6,43 +6,51 @@ import TechPill from "./TechPill.astro";
 ---
 
 <CardContainer>
-  <Accordion title="Lenguajes"
-    ><ul class="flex list-none flex-wrap gap-4 p-0">
-      {
-        languages.map(({ name, image }) => (
-          <TechPill name={name} image={image} textSize="xl" />
-        ))
-      }
-    </ul></Accordion
-  >
+  <div>
+    <Accordion title="Lenguajes"
+      ><ul class="flex list-none flex-wrap gap-4 p-0">
+        {
+          languages.map(({ name, image }) => (
+            <TechPill name={name} image={image} textSize="xl" />
+          ))
+        }
+      </ul></Accordion
+    >
+  </div>
 
-  <Accordion title="Front end"
-    ><ul class="flex list-none flex-wrap justify-between gap-5 p-0">
-      {
-        frontend.map(({ name, image }) => (
-          <TechPill name={name} image={image} textSize="xl" />
-        ))
-      }
-    </ul></Accordion
-  >
+  <div class="mt-5">
+    <Accordion title="Front end"
+      ><ul class="flex list-none flex-wrap justify-between gap-5 p-0">
+        {
+          frontend.map(({ name, image }) => (
+            <TechPill name={name} image={image} textSize="xl" />
+          ))
+        }
+      </ul></Accordion
+    >
+  </div>
 
-  <Accordion title="Back end"
-    ><ul class="flex list-none flex-wrap justify-between gap-4 p-0">
-      {
-        backend.map(({ name, image }) => (
-          <TechPill name={name} image={image} textSize="xl" />
-        ))
-      }
-    </ul></Accordion
-  >
+  <div class="mt-5">
+    <Accordion title="Back end"
+      ><ul class="flex list-none flex-wrap justify-between gap-4 p-0">
+        {
+          backend.map(({ name, image }) => (
+            <TechPill name={name} image={image} textSize="xl" />
+          ))
+        }
+      </ul></Accordion
+    >
+  </div>
 
-  <Accordion title="Otras herramientas"
-    ><ul class="flex list-none flex-wrap justify-between gap-4 p-0">
-      {
-        tools.map(({ name, image }) => (
-          <TechPill name={name} image={image} textSize="xl" />
-        ))
-      }
-    </ul></Accordion
-  >
+  <div class="mt-5">
+    <Accordion title="Otras herramientas"
+      ><ul class="flex list-none flex-wrap justify-between gap-4 p-0">
+        {
+          tools.map(({ name, image }) => (
+            <TechPill name={name} image={image} textSize="xl" />
+          ))
+        }
+      </ul></Accordion
+    >
+  </div>
 </CardContainer>
