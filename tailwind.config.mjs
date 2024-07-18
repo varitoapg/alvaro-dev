@@ -14,8 +14,7 @@ export default {
         "main-text": "#333333",
         "main-text-dark": "#E0E0E0",
         "secondary-text-dark": "#0A0A0A",
-        "border-color": "#CCCCCC",
-        hover: "#FF4136"
+        "border-color": "#CCCCCC"
       },
       fontFamily: {
         "main-font": ["Inter", "sans-serif"],

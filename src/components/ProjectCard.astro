@@ -21,12 +21,12 @@ const { project } = Astro.props;
         <div class="flex flex-row gap-5">
           <Link
             href={project.githubUrl}
-            customClass="hover:text-hover hover:scale-150 ease-in-out duration-300"
+            customClass="hover:scale-150 ease-in-out duration-300"
           >
             <GitHubIcon
               width={"24"}
               height={"24"}
-              iconClass={"hover:text-hover ease-in-out duration-300 hover:scale-105"}
+              iconClass={"hover:text-secondary-accent ease-in-out duration-300"}
             />
           </Link>
 
@@ -34,7 +34,7 @@ const { project } = Astro.props;
             project.url && (
               <Link
                 href={project.url}
-                customClass="hover:text-hover hover:scale-150 ease-in-out duration-300"
+                customClass="hover:text-secondary-accent hover:scale-150 ease-in-out duration-300"
               >
                 <LinkIcon width={"24"} height={"24"} />
               </Link>
@@ -42,7 +42,7 @@ const { project } = Astro.props;
           }
         </div>
       </div>
-      <p class="text-base text-gray-700 dark:text-main-text-dark">
+      <p class="text-lg text-gray-700 dark:text-main-text-dark">
         {project.description}
       </p>
     </div>
