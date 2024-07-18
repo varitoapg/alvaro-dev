@@ -13,19 +13,21 @@ import TelephoneIcon from "./icons/TelephoneIcon.astro";
         <button
           id="copyButton"
           aria-label="Copiar correo"
-          class="rounded-bl rounded-tl border border-primary bg-primary p-2 text-white transition-colors duration-300 hover:bg-secondary hover:text-white"
-          ><CopyIcon id="copyIcon" class="text-white" />
+          class="rounded-bl rounded-tl border border-primary bg-primary p-2 text-white transition-colors duration-300 hover:bg-secondary hover:text-white dark:border-gray-700 dark:bg-secondary dark:text-primary dark:hover:bg-secondary-accent dark:hover:text-primary"
+          ><CopyIcon id="copyIcon" class="text-white dark:text-primary" />
           <span id="copied" class="hidden text-inherit">¡Copiado!</span></button
         >
         <span
           id="textToCopy"
-          class="w-full truncate rounded-br rounded-tr border border-l-0 border-primary bg-transparent p-2 text-primary sm:w-[240px]"
+          class="dark:text-main-text-dark w-full truncate rounded-br rounded-tr border border-l-0 border-primary bg-transparent p-2 text-primary dark:border-gray-700 sm:w-[240px]"
           >alvaro.parada92@gmail.com</span
         >
       </div>
       <div class="flex flex-row items-center text-lg">
-        <TelephoneIcon class="size-8 text-primary" />
-        <span class="text-primary">+34 615 928 718</span>
+        <TelephoneIcon class="dark:text-main-text-dark size-8 text-primary" />
+        <span class="dark:text-main-text-dark text-primary"
+          >+34 615 928 718</span
+        >
       </div>
       <div class="flex flex-row gap-3">
         <GitHubLink
