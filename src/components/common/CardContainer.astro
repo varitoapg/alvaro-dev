@@ -8,7 +8,7 @@ const { customClass, id }: Props = Astro.props;
 
 <div
   id={id}
-  class=`border-3 rounded-lg border border-border-color bg-gradient-to-br from-gray-300 to-white p-6 shadow-dark-lg ${customClass ?? ""}`
+  class=`border-3 rounded-lg border border-border-color bg-gradient-to-br from-gray-300 to-white p-6 shadow-dark-lg dark:shadow-dark-glow ${customClass ?? ""} dark:from-gray-800 dark:to-gray-900 dark:text-main-text-dark dark:border-gray-700`
 >
   <slot />
 </div>
