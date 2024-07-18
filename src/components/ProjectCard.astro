@@ -1,7 +1,8 @@
 ---
 import type { Project } from "../types";
-import GitHubLink from "./links/GitHubLink.astro";
-import NavigateToLink from "./links/NavigateToLink.astro";
+import Link from "./common/Link.astro";
+import GitHubIcon from "./icons/GitHubIcon.astro";
+import LinkIcon from "./icons/LinkIcon.astro";
 import StatusIndicator from "./StatusIndicator.astro";
 import TechPill from "./TechPill.astro";
 
@@ -18,25 +19,30 @@ const { project } = Astro.props;
       <div class="mb-2 mt-4 flex flex-row justify-between text-xl font-bold">
         <span>{project.title} </span>
         <div class="flex flex-row gap-5">
-          <GitHubLink
-            width="24"
-            height="24"
+          <Link
             href={project.githubUrl}
-            linkClass="hover:text-hover hover:scale-150 ease-in-out duration-300"
-          />
+            customClass="hover:text-hover hover:scale-150 ease-in-out duration-300"
+          >
+            <GitHubIcon
+              width={"24"}
+              height={"24"}
+              iconClass={"hover:text-hover ease-in-out duration-300 hover:scale-105"}
+            />
+          </Link>
+
           {
             project.url && (
-              <NavigateToLink
-                width="24"
-                height="24"
+              <Link
                 href={project.url}
-                linkClass="hover:text-hover hover:scale-150 ease-in-out duration-300"
-              />
+                customClass="hover:text-hover hover:scale-150 ease-in-out duration-300"
+              >
+                <LinkIcon width={"24"} height={"24"} />
+              </Link>
             )
           }
         </div>
       </div>
-      <p class="dark:text-main-text-dark text-base text-gray-700">
+      <p class="text-base text-gray-700 dark:text-main-text-dark">
         {project.description}
       </p>
     </div>

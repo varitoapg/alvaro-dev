@@ -1,0 +1,13 @@
+---
+interface Props {
+  customClass?: string;
+  iconClass?: string;
+  href: string;
+}
+
+const { customClass, href }: Props = Astro.props;
+---
+
+<a class={`cursor-pointer ${customClass || ""}`} href={href} target="_blank">
+  <slot />
+</a>
