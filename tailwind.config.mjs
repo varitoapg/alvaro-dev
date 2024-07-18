@@ -20,7 +20,9 @@ export default {
       },
       boxShadow: {
         "dark-lg":
-          "0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.5)"
+          "0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.5)",
+        "dark-sm-soft":
+          "0 5px 10px -3px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3)" // Smaller and less harsh shadow
       },
       maxWidth: {
         "70ch": "70ch"
