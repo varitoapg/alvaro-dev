@@ -14,7 +14,7 @@ const { title, id, customClass }: Props = Astro.props;
   class={`${title.toLocaleLowerCase()} flex flex-col gap-6 ${customClass ?? ""}`}
 >
   <h2
-    class="border-b-2 border-primary pb-2 font-secondary-font text-3xl font-bold text-main-text"
+    class="dark:text-main-text-dark dark:border-main-text-dark border-b-2 border-primary pb-2 font-secondary-font text-3xl font-bold text-main-text"
   >
     {title}
   </h2>

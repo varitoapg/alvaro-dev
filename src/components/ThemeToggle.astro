@@ -1,0 +1,77 @@
+---
+import SunIcon from "./icons/SunIcon.astro";
+import MoonIcon from "./icons/MoonIcon.astro";
+interface Props {
+  customClass?: string;
+}
+
+const { customClass } = Astro.props;
+---
+
+<div class=`ml-1 mr-1 flex items-center ${customClass ? customClass : ""}`>
+  <button
+    id="theme-toggle-btn"
+    class="flex cursor-pointer appearance-none border-none transition hover:scale-125"
+  >
+    <span class="sr-only">Elige el tema</span>
+    <SunIcon
+      id="light"
+      class="theme-toggle-icon size-5 text-white transition-all md:text-primary"
+    />
+    <MoonIcon
+      id="dark"
+      class="theme-toggle-icon absolute size-5 text-white transition-all md:text-primary"
+    />
+  </button>
+</div>
+
+<script is:inline>
+  let remove = null;
+  const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined") {
+      return localStorage.getItem("theme") ?? "dark";
+    }
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+
+  const updateIcon = (themePreference) => {
+    document.querySelectorAll(".theme-toggle-icon").forEach((element) => {
+      element.style.scale = element.id === themePreference ? "1" : "0";
+    });
+  };
+
+  const updateTheme = () => {
+    if (remove != null) {
+      remove();
+    }
+    matchMedia.addEventListener("change", updateTheme);
+    remove = () => {
+      matchMedia.removeEventListener("change", updateTheme);
+    };
+
+    const themePreference = getThemePreference();
+    const isDark =
+      themePreference === "dark" ||
+      (themePreference === "dark" && matchMedia.matches);
+
+    updateIcon(themePreference);
+    document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+  };
+
+  updateTheme();
+
+  const themeOptions = ["light", "dark"];
+  document.getElementById("theme-toggle-btn").addEventListener("click", () => {
+    const currentTheme = getThemePreference();
+    const nextThemeIndex =
+      (themeOptions.indexOf(currentTheme) + 1) % themeOptions.length;
+    const nextTheme = themeOptions[nextThemeIndex];
+    localStorage.setItem("theme", nextTheme);
+    updateTheme();
+  });
+</script>

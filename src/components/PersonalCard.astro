@@ -11,7 +11,7 @@ const { name }: Props = Astro.props;
 ---
 
 <div
-  class="flex h-full w-full flex-col items-center justify-center gap-4 rounded-md bg-primary p-4 shadow-dark-lg duration-300 ease-in-out md:flex-row md:hover:scale-110"
+  class="dark:shadow-dark-glow flex h-full w-full flex-col items-center justify-center gap-4 rounded-md border border-border-color bg-primary p-4 shadow-dark-lg duration-300 ease-in-out dark:border-gray-700 dark:bg-gray-900 md:flex-row md:hover:scale-110"
 >
   <img
     src="/assets/images/yo.webp"
@@ -42,7 +42,7 @@ const { name }: Props = Astro.props;
       />
       <button
         id="downloadButton"
-        class="flex cursor-pointer flex-col rounded-md bg-secondary p-2 text-center text-xl text-white transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-hover"
+        class="dark:text-secondary-text-dark flex cursor-pointer flex-col rounded-md bg-secondary p-2 text-center text-xl text-white transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-hover"
       >
         Descargar CV
       </button>

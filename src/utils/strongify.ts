@@ -6,5 +6,8 @@ export const strongify = (text: string): string => {
   );
   const regex = new RegExp(`\\b(${escapedDictionary.join("|")})\\b`, "gi");
 
-  return text.replace(regex, '<strong class="text-primary">$1</strong>');
+  return text.replace(
+    regex,
+    '<strong class="text-primary dark:text-secondary">$1</strong>'
+  );
 };
