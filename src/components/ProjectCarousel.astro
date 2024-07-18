@@ -16,14 +16,14 @@ const { projects } = Astro.props;
   >
     <button
       aria-label="Previous project"
-      class="absolute -bottom-20 left-0 z-10 rounded-full bg-primary px-4 py-2 text-white shadow-dark-lg hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-75 disabled:hover:bg-primary md:static md:block"
+      class="absolute -bottom-20 left-0 z-10 transform rounded-full bg-primary px-4 py-2 text-white shadow-dark-lg transition-transform duration-300 hover:bg-secondary hover:enabled:-translate-x-2 disabled:cursor-not-allowed disabled:opacity-75 disabled:hover:bg-primary md:static md:block"
       id="prevButton"
       tabindex="0"
     >
       <ArrowIcon customClass="mx-auto rotate-180" width="36px" height="36px" />
     </button>
     <ul
-      class="scrollbar-hide mt-4 flex w-full snap-x snap-mandatory gap-3 overflow-x-scroll rounded-2xl"
+      class="mt-4 flex w-full snap-x snap-mandatory gap-3 overflow-x-scroll rounded-2xl scrollbar-hide"
       aria-labelledby="carousel-content-label"
       id="slider"
     >
@@ -38,7 +38,7 @@ const { projects } = Astro.props;
 
     <button
       aria-label="Next project"
-      class="absolute -bottom-20 right-0 z-10 rounded-full bg-primary px-4 py-2 text-white shadow-dark-lg hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-75 disabled:hover:bg-primary md:static md:block"
+      class="absolute -bottom-20 right-0 z-10 transform rounded-full bg-primary px-4 py-2 text-white shadow-dark-lg transition-transform duration-300 hover:bg-secondary hover:enabled:translate-x-2 disabled:cursor-not-allowed disabled:opacity-75 disabled:hover:bg-primary md:static md:block"
       id="nextButton"
       tabindex="0"
     >
