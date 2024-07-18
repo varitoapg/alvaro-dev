@@ -22,7 +22,7 @@ const { project } = Astro.props;
             width="24"
             height="24"
             href={project.githubUrl}
-            linkClass="hover:text-hover hover:scale-150"
+            linkClass="hover:text-hover hover:scale-150 ease-in-out duration-300"
           />
           {
             project.url && (
@@ -30,7 +30,7 @@ const { project } = Astro.props;
                 width="24"
                 height="24"
                 href={project.url}
-                linkClass="hover:text-hover hover:scale-150"
+                linkClass="hover:text-hover hover:scale-150 ease-in-out duration-300"
               />
             )
           }
