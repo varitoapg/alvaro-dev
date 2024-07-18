@@ -1,4 +1,6 @@
 ---
+import { applyImageInversion } from "../utils/invertImage";
+
 interface Props {
   name: string;
   image: string;
@@ -8,6 +10,9 @@ interface Props {
 }
 
 const { image, name, iconSize = 80, isPill, textSize }: Props = Astro.props;
+
+const techUrlSections = image.split("/");
+const techToInvert = techUrlSections[3];
 ---
 
 <li
@@ -15,7 +20,7 @@ const { image, name, iconSize = 80, isPill, textSize }: Props = Astro.props;
 >
   <img
     src={image}
-    class={`inline-block ${isPill ? "hover:rotate-45 ease-in-out duration-300" : "hover:scale-105 ease-in-out duration-300"}`}
+    class={`inline-block ${isPill ? `hover:rotate-45 ease-in-out duration-300 ${applyImageInversion(techToInvert)}` : "hover:scale-105 ease-in-out duration-300"}`}
     width={iconSize}
     height={iconSize}
     alt=""
