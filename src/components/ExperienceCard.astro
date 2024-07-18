@@ -11,7 +11,7 @@ interface Props {
 const { experience }: Props = Astro.props;
 ---
 
-<CardContainer>
+<CardContainer customClass="hover:scale-105 ease-out duration-300">
   <div class="flex flex-col">
     <h2 class="mb-2 text-xl font-bold">{experience.position}</h2>
     <div class="mb-5 flex items-center">
