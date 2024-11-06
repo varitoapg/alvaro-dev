@@ -6,5 +6,6 @@ export const techImagesToInvert: string[] = [
   "redux",
   "styled-components",
   "nodedotjs",
-  "nextdotjs"
+  "nextdotjs",
+  "github"
 ];
