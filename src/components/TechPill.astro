@@ -16,11 +16,11 @@ const techToInvert = techUrlSections[3];
 ---
 
 <li
-  class=`flex items-center gap-2 px-2 py-1 ${isPill ? "rounded-full border border-main-text shadow-dark-sm-soft dark:bg-gray-700 dark:shadow-dark-xs-glow hover:scale-105 ease-in-out duration-300" : "flex-col"}`
+  class=`flex items-center gap-2 px-2 py-1 ${isPill ? "rounded-full border border-main-text shadow-dark-sm-soft duration-300 ease-in-out hover:scale-105 dark:bg-gray-700 dark:shadow-dark-xs-glow" : "flex-col"}`
 >
   <img
     src={image}
-    class={`inline-block ${isPill ? `hover:rotate-45 ease-in-out duration-300 ${applyImageInversion(techToInvert)}` : "hover:scale-105 ease-in-out duration-300"}`}
+    class={`inline-block duration-300 ease-in-out ${applyImageInversion(techToInvert)} ${isPill ? `hover:rotate-45` : "hover:scale-105"}`}
     width={iconSize}
     height={iconSize}
     alt=""
