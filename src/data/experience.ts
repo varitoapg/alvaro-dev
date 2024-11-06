@@ -10,8 +10,8 @@ export const experiences: Experience[] = [
       "- Optimización de endpoints y queries SQL, llegando a reducir de 20s a menos de 1s el tiempo de respuesta.",
       "- Mejora del entorno Agile estandarizando las definiciones de las tareas en Jira y reduciendo el tiempo de las dailies de más de 30 min a menos de 10."
     ],
-    endDate: "Actual",
-    startDate: "Abr. 2021",
+    endDate: "Sept. 2024",
+    startDate: "Abr. 2023",
     position: "Desarrollador Fullstack",
     stack: [
       {
@@ -44,8 +44,8 @@ export const experiences: Experience[] = [
       "- Implementé de test unitarios con Jest, subiendo el coverage hasta estar por encima del 80%.",
       "- Mejoré la UX/UI de las aplicaciones, aumentando los valores de LightHouse a más de 90."
     ],
-    endDate: "Dic. 2021",
-    startDate: "Sept. 2021",
+    endDate: "Dic. 2022",
+    startDate: "Sept. 2022",
     position: "Desarrollador Fullstack",
     stack: [
       {
@@ -75,8 +75,8 @@ export const experiences: Experience[] = [
       "- Control de stock y pedidos mediante automatización de hojas de cálculo Excel.",
       "- Mejoré componentes de la web."
     ],
-    endDate: "Sept. 2021",
-    startDate: "Jun. 2021",
+    endDate: "Sept. 2022",
+    startDate: "Jun. 2022",
     position: "Ingeniero Junior",
     stack: [
       {
