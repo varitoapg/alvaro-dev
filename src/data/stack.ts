@@ -3,8 +3,7 @@ import { getIconImage } from "../utils/stackUtils";
 
 export const languages: StackItemStructure[] = [
   { name: "Typescript", image: getIconImage("typescript") },
-  { name: "JavaScript", image: getIconImage("javascript") },
-  { name: "Python", image: getIconImage("python") }
+  { name: "JavaScript", image: getIconImage("javascript") }
 ];
 
 export const frontend: StackItemStructure[] = [
@@ -32,7 +31,6 @@ export const tools: StackItemStructure[] = [
   { name: "Jira", image: getIconImage("jira") },
   { name: "Git", image: getIconImage("git") },
   { name: "Docker", image: getIconImage("docker") },
-  { name: "Git", image: getIconImage("git") },
   { name: "Figma", image: getIconImage("figma") },
   { name: "Github", image: getIconImage("github") }
 ];
