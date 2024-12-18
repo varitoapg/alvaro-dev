@@ -3,9 +3,11 @@ import type { StatusTypes } from "../types";
 import DoneIcon from "./icons/DoneIcon.astro";
 import NotStartedIcon from "./icons/NotStartedIcon.astro";
 import WIPIcon from "./icons/WIPIcon.astro";
+
 interface Props {
   status: StatusTypes;
 }
+//TODO: get better icons, same family
 const { status }: Props = Astro.props;
 ---
 
