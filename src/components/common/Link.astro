@@ -1,13 +1,20 @@
 ---
 interface Props {
+  href: string;
   customClass?: string;
   iconClass?: string;
-  href: string;
+  ariaLabel?: string;
 }
 
-const { customClass, href }: Props = Astro.props;
+const { customClass, href, ariaLabel = "" }: Props = Astro.props;
 ---
 
-<a class={`cursor-pointer ${customClass || ""}`} href={href} target="_blank">
+<a
+  class={`cursor-pointer ${customClass || ""}`}
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={ariaLabel}
+>
   <slot />
 </a>

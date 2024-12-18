@@ -23,7 +23,7 @@ const { name }: Props = Astro.props;
     class="flex h-full w-full flex-col items-center justify-center gap-4 rounded-xl"
   >
     <h1
-      class="text-center font-secondary-font text-[35px] text-white md:text-5xl md:text-6xl"
+      class="text-center font-secondary-font text-[35px] text-white md:text-6xl"
     >
       {name}
     </h1>
@@ -31,7 +31,10 @@ const { name }: Props = Astro.props;
     <Role />
 
     <nav class="flex h-11 flex-grow gap-4">
-      <Link href="https://github.com/varitoapg">
+      <Link
+        href="https://github.com/varitoapg"
+        ariaLabel="Alvaro Parada GitHub"
+      >
         <GitHubIcon
           width={"42"}
           height={"42"}
@@ -39,7 +42,10 @@ const { name }: Props = Astro.props;
         />
       </Link>
 
-      <Link href="https://www.linkedin.com/in/alvaro-parada/">
+      <Link
+        href="https://www.linkedin.com/in/alvaro-parada/"
+        ariaLabel="Alvaro Parada LinkedIn"
+      >
         <LinkedInIcon
           width={"42"}
           height={"42"}
